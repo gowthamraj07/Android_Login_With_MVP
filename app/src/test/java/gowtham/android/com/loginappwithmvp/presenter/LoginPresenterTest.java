@@ -97,4 +97,17 @@ public class LoginPresenterTest {
         passwordInOrder.verify(view, times(0)).showPasswordError();
         verify(view).showNextScreen();
     }
+
+    @Test
+    public void shouldShowErrorForInvalidCredentials() {
+        presenter.signIn("invalid user id", "invalid password");
+
+        InOrder userIdInOrder = inOrder(view);
+        userIdInOrder.verify(view).hideUserIdError();
+        userIdInOrder.verify(view, times(0)).showUserIdError();
+        InOrder passwordInOrder = inOrder(view);
+        passwordInOrder.verify(view).hidePasswordError();
+        passwordInOrder.verify(view, times(0)).showPasswordError();
+        verify(view, times(0)).showNextScreen();
+    }
 }

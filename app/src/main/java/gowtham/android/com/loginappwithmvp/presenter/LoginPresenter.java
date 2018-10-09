@@ -34,6 +34,10 @@ public class LoginPresenter {
             return;
         }
 
+        if (!USERID.equals(userId) || !PASSWORD.equals(password)) {
+            return;
+        }
+
         view.showNextScreen();
     }
 
