@@ -52,6 +52,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void showInvalidCredentialsError() {
-
+        Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
     }
 }
