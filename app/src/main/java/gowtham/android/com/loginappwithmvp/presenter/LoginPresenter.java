@@ -15,12 +15,22 @@ public class LoginPresenter {
     }
 
     public void signIn(String userId, String password) {
-        if (password == null || password.isEmpty()) {
+        view.hideUserIdError();
+        view.hidePasswordError();
+
+        boolean isInvalidPassword = isInValid(password);
+        if (isInvalidPassword) {
             view.showPasswordError();
         }
 
-        if (userId == null || userId.isEmpty()) {
+        boolean isInvalidUserId = isInValid(userId);
+        if (isInvalidUserId) {
             view.showUserIdError();
         }
+
+    }
+
+    private boolean isInValid(String text) {
+        return text == null || text.isEmpty();
     }
 }

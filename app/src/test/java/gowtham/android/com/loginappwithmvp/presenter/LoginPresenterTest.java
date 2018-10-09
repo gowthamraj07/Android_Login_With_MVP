@@ -2,10 +2,12 @@ package gowtham.android.com.loginappwithmvp.presenter;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 import gowtham.android.com.loginappwithmvp.view.LoginView;
 
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
 public class LoginPresenterTest {
@@ -68,7 +70,11 @@ public class LoginPresenterTest {
     public void showUserIdAndPasswordErrorWhenBothAreInvalid() {
         presenter.signIn(NULL_USER_ID, NULL_PASSWORD);
 
-        verify(view).showUserIdError();
-        verify(view).showPasswordError();
+        InOrder userIdInOrder = inOrder(view);
+        userIdInOrder.verify(view).hideUserIdError();
+        userIdInOrder.verify(view).showUserIdError();
+        InOrder passwordInOrder = inOrder(view);
+        passwordInOrder.verify(view).hidePasswordError();
+        passwordInOrder.verify(view).showPasswordError();
     }
 }
