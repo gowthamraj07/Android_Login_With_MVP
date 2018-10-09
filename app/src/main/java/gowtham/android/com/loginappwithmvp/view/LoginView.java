@@ -5,4 +5,5 @@ public interface LoginView {
     void hidePasswordError();
 
     void showUserIdError();
+    void showPasswordError();
 }

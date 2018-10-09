@@ -45,4 +45,13 @@ public class LoginPresenterTest {
 
         verify(view).showUserIdError();
     }
+
+    @Test
+    public void showPasswordErrorWhenPasswordIsNull() {
+        String anyUserId = "any user id";
+        String nullPassword = null;
+        presenter.signIn(anyUserId, nullPassword);
+
+        verify(view).showPasswordError();
+    }
 }
