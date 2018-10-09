@@ -54,4 +54,13 @@ public class LoginPresenterTest {
 
         verify(view).showPasswordError();
     }
+
+    @Test
+    public void showPasswordErrorWhenPasswordIsEmpty() {
+        String anyUserId = "any user id";
+        String emptyPassword = "";
+        presenter.signIn(anyUserId, emptyPassword);
+
+        verify(view).showPasswordError();
+    }
 }
