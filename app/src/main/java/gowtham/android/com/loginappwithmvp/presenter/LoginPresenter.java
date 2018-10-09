@@ -30,6 +30,10 @@ public class LoginPresenter {
             view.showUserIdError();
         }
 
+        if(isInvalidUserId) {
+            return;
+        }
+
         view.showNextScreen();
     }
 
