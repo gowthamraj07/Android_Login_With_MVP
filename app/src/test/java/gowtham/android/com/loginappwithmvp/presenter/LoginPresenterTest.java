@@ -61,6 +61,7 @@ public class LoginPresenterTest {
         presenter.signIn(ANY_USER_ID, NULL_PASSWORD);
 
         verify(view).showPasswordError();
+        verify(view, times(0)).showNextScreen();
     }
 
     @Test
@@ -68,6 +69,7 @@ public class LoginPresenterTest {
         presenter.signIn(ANY_USER_ID, EMPTY_PASSWORD);
 
         verify(view).showPasswordError();
+        verify(view, times(0)).showNextScreen();
     }
 
     @Test
@@ -80,6 +82,7 @@ public class LoginPresenterTest {
         InOrder passwordInOrder = inOrder(view);
         passwordInOrder.verify(view).hidePasswordError();
         passwordInOrder.verify(view).showPasswordError();
+        verify(view, times(0)).showNextScreen();
     }
 
     @Test

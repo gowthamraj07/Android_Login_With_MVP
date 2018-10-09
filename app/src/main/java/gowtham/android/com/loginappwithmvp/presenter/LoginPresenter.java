@@ -30,7 +30,7 @@ public class LoginPresenter {
             view.showUserIdError();
         }
 
-        if(isInvalidUserId) {
+        if(isInvalidUserId || isInvalidPassword) {
             return;
         }
 
