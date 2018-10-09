@@ -49,4 +49,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void showNextScreen() {
         Toast.makeText(this, "Logic to show next screen", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void showInvalidCredentialsError() {
+
+    }
 }

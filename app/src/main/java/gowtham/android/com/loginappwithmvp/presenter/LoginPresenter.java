@@ -35,6 +35,7 @@ public class LoginPresenter {
         }
 
         if (!USERID.equals(userId) || !PASSWORD.equals(password)) {
+            view.showInvalidCredentialsError();
             return;
         }
 

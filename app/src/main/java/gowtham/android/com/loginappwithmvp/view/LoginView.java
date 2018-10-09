@@ -8,4 +8,5 @@ public interface LoginView {
     void showPasswordError();
 
     void showNextScreen();
+    void showInvalidCredentialsError();
 }

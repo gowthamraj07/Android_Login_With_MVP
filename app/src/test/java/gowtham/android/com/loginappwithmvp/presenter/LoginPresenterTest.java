@@ -107,6 +107,7 @@ public class LoginPresenterTest {
         InOrder passwordInOrder = inOrder(view);
         passwordInOrder.verify(view).hidePasswordError();
         passwordInOrder.verify(view, times(0)).showPasswordError();
+        verify(view).showInvalidCredentialsError();
         verify(view, times(0)).showNextScreen();
     }
 }
