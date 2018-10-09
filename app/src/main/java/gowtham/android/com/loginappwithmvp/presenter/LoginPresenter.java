@@ -3,6 +3,8 @@ package gowtham.android.com.loginappwithmvp.presenter;
 import gowtham.android.com.loginappwithmvp.view.LoginView;
 
 public class LoginPresenter {
+    public static final String PASSWORD = "password";
+    public static final String USERID = "userid";
     private LoginView view;
 
     public LoginPresenter(LoginView view) {
@@ -28,6 +30,7 @@ public class LoginPresenter {
             view.showUserIdError();
         }
 
+        view.showNextScreen();
     }
 
     private boolean isInValid(String text) {

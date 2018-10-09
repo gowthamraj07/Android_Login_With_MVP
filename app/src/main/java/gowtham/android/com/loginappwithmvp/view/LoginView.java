@@ -6,4 +6,6 @@ public interface LoginView {
 
     void showUserIdError();
     void showPasswordError();
+
+    void showNextScreen();
 }
