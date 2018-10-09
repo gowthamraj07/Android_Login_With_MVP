@@ -21,13 +21,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final LoginPresenter presenter = new LoginPresenter(this);
-        presenter.initialize();
-
         tvUserIdError = findViewById(R.id.tv_user_id_error_message);
         tvPasswordError = findViewById(R.id.tv_password_error_message);
         final EditText etUserId = findViewById(R.id.et_user_id);
         final EditText etPassword = findViewById(R.id.et_password);
+
+        final LoginPresenter presenter = new LoginPresenter(this);
+        presenter.initialize();
 
         Button btnSignIn = findViewById(R.id.btn_sign_in);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
