@@ -15,6 +15,11 @@ public class LoginPresenter {
     }
 
     public void signIn(String userId, String password) {
+        if(userId == null) {
+            view.showUserIdError();
+            return;
+        }
+
         if(userId.isEmpty()) {
             view.showUserIdError();
         }
