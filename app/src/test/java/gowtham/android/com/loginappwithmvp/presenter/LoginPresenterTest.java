@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 
 import gowtham.android.com.loginappwithmvp.view.LoginView;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 public class LoginPresenterTest {
@@ -14,8 +13,17 @@ public class LoginPresenterTest {
     private LoginView view;
     private LoginPresenter presenter;
 
+    private static final String NULL_PASSWORD = null;
+    private static final String NULL_USER_ID = null;
+
+    private static final String ANY_USER_ID = "any user id";
+    private static final String ANY_PASSWORD = "any password";
+
+    private static final String EMPTY_PASSWORD = "";
+    private static final String EMPTY_USER_ID = "";
+
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         view = Mockito.mock(LoginView.class);
         presenter = new LoginPresenter(view);
     }
@@ -30,37 +38,37 @@ public class LoginPresenterTest {
 
     @Test
     public void showUserIdErrorWhenUserIdIsEmpty() {
-        String emptyUserId = "";
-        String anyPassword = "any password";
-        presenter.signIn(emptyUserId, anyPassword);
+        presenter.signIn(EMPTY_USER_ID, ANY_PASSWORD);
 
         verify(view).showUserIdError();
     }
 
     @Test
     public void showUserIdErrorWhenUserIdIsNull() {
-        String nullUserId = null;
-        String anyPassword = "any password";
-        presenter.signIn(nullUserId, anyPassword);
+        presenter.signIn(NULL_USER_ID, ANY_PASSWORD);
 
         verify(view).showUserIdError();
     }
 
     @Test
     public void showPasswordErrorWhenPasswordIsNull() {
-        String anyUserId = "any user id";
-        String nullPassword = null;
-        presenter.signIn(anyUserId, nullPassword);
+        presenter.signIn(ANY_USER_ID, NULL_PASSWORD);
 
         verify(view).showPasswordError();
     }
 
     @Test
     public void showPasswordErrorWhenPasswordIsEmpty() {
-        String anyUserId = "any user id";
-        String emptyPassword = "";
-        presenter.signIn(anyUserId, emptyPassword);
+        presenter.signIn(ANY_USER_ID, EMPTY_PASSWORD);
 
+        verify(view).showPasswordError();
+    }
+
+    @Test
+    public void showUserIdAndPasswordErrorWhenBothAreInvalid() {
+        presenter.signIn(NULL_USER_ID, NULL_PASSWORD);
+
+        verify(view).showUserIdError();
         verify(view).showPasswordError();
     }
 }
