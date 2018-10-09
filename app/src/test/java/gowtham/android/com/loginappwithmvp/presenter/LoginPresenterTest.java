@@ -53,6 +53,7 @@ public class LoginPresenterTest {
         presenter.signIn(NULL_USER_ID, ANY_PASSWORD);
 
         verify(view).showUserIdError();
+        verify(view, times(0)).showNextScreen();
     }
 
     @Test
