@@ -8,7 +8,6 @@ import org.mockito.Mockito;
 import gowtham.android.com.loginappwithmvp.view.LoginView;
 
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
