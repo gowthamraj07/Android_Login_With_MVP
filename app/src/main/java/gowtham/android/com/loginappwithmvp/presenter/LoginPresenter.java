@@ -13,4 +13,10 @@ public class LoginPresenter {
         view.hideUserIdError();
         view.hidePasswordError();
     }
+
+    public void signIn(String userId, String password) {
+        if(userId.isEmpty()) {
+            view.showUserIdError();
+        }
+    }
 }
